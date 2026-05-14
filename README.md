@@ -1,5 +1,6 @@
 # aulas_DevOps
 
+
 #O que é DevOps?
 DevOps é uma cultura e conjunto de práticas que integram as equipes de desenvolvimento(Dev) e operações de TI(Ops) para entregar software com mais rapidez, qualidade e confiabilidade.
 
