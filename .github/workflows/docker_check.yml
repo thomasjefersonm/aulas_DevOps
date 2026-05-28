@@ -35,16 +35,16 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/satc-devops:0.0.2 .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sh }} .
 
       - name: Push Docker image
-        run: docker push docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:0.0.2
+        run: docker push docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sh }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'image'
-          image-ref: 'docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:0.0.2'
+          image-ref: 'docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sh }}'
           format: json
           output: trivy-results.json
           severity: MEDIUM,HIGH,CRITICAL
