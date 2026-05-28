@@ -1,7 +1,15 @@
-FROM alpine:3.19
+FROM node:20-alpine
 
 WORKDIR /app
 
 COPY . .
 
-CMD ["echo", "Aplicação rodando"]
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 4173
+
+CMD ["npm", "run", "preview"]
