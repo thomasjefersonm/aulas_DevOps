@@ -1,4 +1,4 @@
-name: build and scan
+name: Build
 
 on:
   workflow_call:
